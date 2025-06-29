@@ -1,5 +1,4 @@
 # genAIFrontEnd-Project
 
 FrontEnd Generator Project
-
-this guy stinks lmao
+This is a million  dollar idea so tuff.
