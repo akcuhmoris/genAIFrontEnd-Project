@@ -1,0 +1,16 @@
+#Node
+node_modules
+dist
+.env
+.env.local
+.env.development
+npm-debug.log
+.DS_Store
+
+#Docker Volumes
+
+postgres_data
+
+#prisma
+
+prisma/migrations
