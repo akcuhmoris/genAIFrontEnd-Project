@@ -1,16 +1,13 @@
-#Node
+# Node
 node_modules
 dist
-.env
-.env.local
-.env.development
 npm-debug.log
 .DS_Store
 
-#Docker Volumes
+# Env files
+.env
+.env.local
+.env.development
 
+# Docker Volumes
 postgres_data
-
-#prisma
-
-prisma/migrations
