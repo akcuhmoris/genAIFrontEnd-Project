@@ -1,16 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { PrismaClient } from '@prisma/client';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  console.log('BOOTSTRAP STARTED');
-
-  const prisma = new PrismaClient();
-  const users = await prisma.user.findMany();
-  console.log('USERS:', users);
-
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
 }
-
 bootstrap();
+
