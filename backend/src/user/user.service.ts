@@ -10,7 +10,12 @@ export class UserService {
   async getAllUsers() {
     return this.prisma.user.findMany();
   }
-
+  async deleteUser(id: number) {
+    return this.prisma.user.delete({
+      where: { id },
+    });
+  }
+  
   async createUser(data: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     return this.prisma.user.create({
