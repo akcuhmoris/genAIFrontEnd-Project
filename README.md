@@ -21,6 +21,9 @@ Note: If Prisma used before run: npx prisma migrate reset
 Note: type y
 1. Install Dependecies: npm install
 2. npm install class-validator class-transformer
+   npm install bcrypt
+   npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
+   npm install --save-dev @types/passport-jwt
 3. cp .env.example .env
 4. Make sure .env file has: postgresql://postgres:postgres@localhost:5432/postgres
 5. docker-compose up -d 
