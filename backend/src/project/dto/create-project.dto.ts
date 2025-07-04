@@ -7,6 +7,5 @@ export class CreateProjectDto {
   @IsNotEmpty()
   codeUrl: string;
 
-  @IsNotEmpty()
-  userId: number;
+  
 }
