@@ -24,6 +24,7 @@ Note: type y
    npm install bcrypt
    npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
    npm install --save-dev @types/passport-jwt
+
 3. cp .env.example .env
 4. Make sure .env file has: postgresql://postgres:postgres@localhost:5432/postgres
 5. docker-compose up -d 
