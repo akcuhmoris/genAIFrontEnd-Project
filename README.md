@@ -25,6 +25,10 @@ Note: type y
    npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
    npm install --save-dev @types/passport-jwt
    npm install --save-dev @types/bcrypt
+   npm install zustand
+   npm install @monaco-editor/react
+   npm install grapejs
+   npm install aws-sdk
 
 
 3. cp .env.example .env
