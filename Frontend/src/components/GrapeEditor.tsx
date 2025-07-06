@@ -8,7 +8,7 @@ export function GrapeEditor() {
       container: "#gjs",
       height: "600px",
       width: "auto",
-      storageManager: { autoload: false },
+      storageManager: { autoload: true },
     });
   }, []);
 
