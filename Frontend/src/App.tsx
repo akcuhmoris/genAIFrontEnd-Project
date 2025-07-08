@@ -2,10 +2,13 @@
 import { useState } from 'react';
 import PromptBar from './components/PromptBar';
 import axios from 'axios';
+import { useAuthStore } from './store/authStore';
+import Login from "./components/Login";
 
 function App() {
   const [response, setResponse] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const token = useAuthStore((s) => s.token);
 
   const handlePrompt = async (prompt: string) => {
     setLoading(true);
@@ -40,7 +43,9 @@ function App() {
     setLoading(false);
   }
 };
-
+  if(!token){
+    return <Login />
+  }
   return (
     <div className="min-h-screen pb-20 px-6 pt-6 bg-gray-100 text-gray-90">
       <h1 className=" text-2xl font-semibold mb-4">Frontend Generator</h1>
