@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "aws-sdk": "^2.1692.0",
+    "grapejs": "^2.1.2",
+    "zustand": "^5.0.6"
+  }
+}
