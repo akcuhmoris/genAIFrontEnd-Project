@@ -4,6 +4,7 @@ import PromptBar from './components/PromptBar';
 import axios from 'axios';
 import { useAuthStore } from './store/authStore';
 import Login from "./components/Login";
+import Title from './components/Title';
 
 function App() {
   const [response, setResponse] = useState<string | null>(null);
@@ -47,8 +48,8 @@ function App() {
     return <Login />
   }
   return (
-    <div className="min-h-screen pb-20 px-6 pt-6 bg-gray-100 text-gray-90">
-      <h1 className=" text-2xl font-semibold mb-4">Frontend Generator</h1>
+    <>
+    <Title />
 
       {response && (
         <div className="bg-white rounded-xl shadow-md p-4 mb-4">
@@ -57,7 +58,7 @@ function App() {
       )}
       <PromptBar onSubmit={handlePrompt} loading={loading} />
 
-    </div>
+    </>
   );
 }
 
