@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './user/user.module';
+import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
-import { ProjectModule } from './project/project.module';
-import { FirebaseApp } from 'firebase/app';
 import { AuthModule } from './auth/auth.module';
+import { ProjectModule } from './project/project.module';
 
 @Module({
-  imports: [UserModule, PrismaModule, ProjectModule]
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    PrismaModule,
+    AuthModule,
+    ProjectModule,
+  ],
 })
 export class AppModule {}

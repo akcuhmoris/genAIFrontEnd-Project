@@ -1,52 +1,41 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 
 @Injectable()
 export class ProjectService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
-  async getAllProjects() {
+  // Return all projects (no user filtering)
+  getAllProjects() {
     return this.prisma.project.findMany();
   }
 
-  async createProject(data: CreateProjectDto, userId: number) {
+  // Return one project by ID
+  async getProjectById(id: number) {
+    const project = await this.prisma.project.findUnique({ where: { id } });
+    if (!project) throw new NotFoundException('Project not found');
+    return project;
+  }
+
+  // Create a project
+  createProject(data: CreateProjectDto, firebaseUid: string) {
     return this.prisma.project.create({
       data: {
         name: data.name,
         codeUrl: data.codeUrl,
-        userId: userId,
+        firebaseUid,
+        // userId: optional if you also want relational link
       },
     });
   }
-  async getProjectById(id: number, userId: number) {
-    return this.prisma.project.findFirstOrThrow({
-      where: {
-        id,
-        userId,
-      },
-    });
-  }
-  async deleteProject(id: number, userId: number) {
-    return this.prisma.project.deleteMany({
-      where: {
-        id,
-        userId,
-      },
-    });
-  }
+  
+  
+  
+  
 
-
-  async getProjectsForUser(userId: number) {
-    return this.prisma.project.findMany({
-      where: { userId },
-    });
+  // Delete a project by ID
+  deleteProject(id: number) {
+    return this.prisma.project.delete({ where: { id } });
   }
-  async updateProject(id: number, userId: number, data: Partial<CreateProjectDto>) {
-    return this.prisma.project.updateMany({
-      where: { id, userId },
-      data,
-    });
-  }
-
 }
