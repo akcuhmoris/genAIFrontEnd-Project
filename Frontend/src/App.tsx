@@ -47,9 +47,9 @@ function App() {
   if(!token){
     return <Login />
   }
-  return (
-    <>
-    <Title />
+    return (
+    <div className="min-h-screen pb-20 px-6 pt-6 bg-gray-100 text-gray-90">
+      <Title />
 
       {response && (
         <div className="bg-white rounded-xl shadow-md p-4 mb-4">
@@ -58,8 +58,7 @@ function App() {
       )}
       <PromptBar onSubmit={handlePrompt} loading={loading} />
 
-    </>
+    </div>
   );
 }
-
 export default App;
