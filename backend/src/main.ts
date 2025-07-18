@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { S3, PutObjectCommand } from '@aws-sdk/client-s3';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
