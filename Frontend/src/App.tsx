@@ -5,12 +5,13 @@ import axios from 'axios';
 import { useAuthStore } from './store/authStore';
 import Login from "./components/Login";
 import Title from './components/Title';
+import Navbar from './components/Navbar';
 
 function App() {
   const [response, setResponse] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const token = useAuthStore((s) => s.token);
-
+  
   const handlePrompt = async (prompt: string) => {
     setLoading(true);
     console.log('User asked:', prompt);
@@ -48,8 +49,9 @@ function App() {
     return <Login />
   }
     return (
-    <div className="min-h-screen pb-20 px-6 pt-6 bg-gray-100 text-gray-90">
-      <Title />
+      <div className="min-h-screen bg-gray-100 text-gray-900">
+        <Navbar onHistoryClick={() => {}} profileUrl={"/defaultuser.jpeg"}
+        />
 
       {response && (
         <div className="bg-white rounded-xl shadow-md p-4 mb-4">
