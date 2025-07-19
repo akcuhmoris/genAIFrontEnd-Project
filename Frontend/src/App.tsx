@@ -12,38 +12,36 @@ function App() {
   const token = useAuthStore((s) => s.token);
 
   const handlePrompt = async (prompt: string) => {
-    setLoading(true);
-    console.log('User asked:', prompt);
-
+  setLoading(true);
+  setResponse(null);
+  console.log('User entered:', prompt);
 
   try {
-    const apiKey = 'my key'; 
+    if (!token) {
+      setResponse('You must be logged in.');
+      return;
+    }
 
-    const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        model: 'gpt-4o-mini',
-        messages: [{ role: 'user', content: prompt }],
-        max_tokens: 150,
-        temperature: 0.7,
-      },
+    const result = await axios.post(
+      'http://localhost:3000/projects/upload-prompt',
+      { prompt },
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${token}`,
         },
       }
     );
 
-    const message = response.data.choices[0].message.content;
-    setResponse(message);
-  } catch (error) {
-    console.error('API call error:', error);
-    setResponse('API call is not created yet. This is just a generated response 😁');
+    setResponse(result.data.message || 'Upload successful!');
+  } catch (err: any) {
+    console.error('S3 upload failed:', err);
+    setResponse('Upload failed. Check console for details.');
   } finally {
     setLoading(false);
   }
 };
+
   if(!token){
     return <Login />
   }
