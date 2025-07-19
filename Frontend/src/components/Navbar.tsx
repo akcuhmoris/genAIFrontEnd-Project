@@ -5,22 +5,21 @@ interface NavbarProps {
   profileUrl: string;
 }
 
-export default function Navbar({ onHistoryClick, profileUrl }: NavbarProps) {
+export default function Navbar({ onHistoryClick}: NavbarProps) {
   return (
-    <nav className="flex items-center justify-between bg-white p-4 shadow">
+    <nav className="flex items-center justify-between bg-zinc-500 p-4 shadow-2xl margin-bottom-5">
       {/* Left: history button */}
       <button
         onClick={onHistoryClick}
-        className="px-3 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-800 transition"
       >
-        History
+        <img src="/chat-history.svg" className="h-8 hover:opacity-20"></img>
       </button>
 
       {/* Center: site logo */}
       <img
         src="/logo.png"
         alt="Site Logo"
-        className="h-8"
+        className="h-9 rounded hover:opacity-20"
         
       />
 
@@ -28,7 +27,7 @@ export default function Navbar({ onHistoryClick, profileUrl }: NavbarProps) {
       <img
         src={"/defaultuser.jpeg"}
         alt="Profile"
-        className="h-8 w-8 rounded-full object-cover"
+        className="h-8 w-8 rounded-full object-cover hover:opacity-20"
       />
     </nav>
   );
