@@ -8,6 +8,8 @@ import Title from './components/Title';
 import Navbar from './components/Navbar';
 
 function App() {
+  document.title = 'Frontend Generator';
+
   const [response, setResponse] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const token = useAuthStore((s) => s.token);
