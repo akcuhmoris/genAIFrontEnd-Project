@@ -6,6 +6,7 @@ load_dotenv()
 
 # Get the API key from the environment variable
 api_key = os.environ.get("GEMINI_API_KEY")
+aws_region = os.environ.get("AWS_REGION")
 
 # Initialize the client with the API key
 client = genai.Client(api_key=api_key)
