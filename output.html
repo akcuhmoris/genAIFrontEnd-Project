@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera - Software Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-light: #f8f9fa;
+            --background-dark: #343a40;
+            --text-dark: #333;
+            --text-light: #fff;
+            --border-color: #e9ecef;
+            --card-background: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            font-weight: 400;
+            padding: 8px 12px;
+            display: block;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.6em;
+        }
+
+        .project-card p {
+            font-size: 0.95em;
+            color: var(--secondary-color);
+        }
+
+        .project-card .links a {
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        .skills-list, .activities-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skills-list li, .activities-list li {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+        
+        .activities-list li {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Alex Rivera</h1>
+            <p>Software Engineer | Building scalable and elegant solutions</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Highly motivated and results-driven Software Engineer with a passion for developing robust and efficient web applications.
+                I thrive on solving complex problems, learning new technologies, and contributing to innovative projects.
+                My expertise spans full-stack development, with a strong focus on backend systems and API design.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>AI-Powered Chatbot Framework</h3>
+                    <p>
+                        A Python-based framework designed for building customizable AI chatbots with natural language processing (NLP) capabilities.
+                        Features include dynamic intent recognition, extensible module system, and integration examples for popular messaging platforms.
+                    </p>
+                    <div class="links">
+                        <a href="https://github.com/alexrivera-dev/ai-chatbot-framework" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">Live Demo (N/A)</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>E-commerce API Gateway</h3>
+                    <p>
+                        Developed a high-performance Node.js API gateway service for a mock e-commerce platform.
+                        It handles authentication, product catalog management, and order processing, acting as a central entry point for various microservices.
+                    </p>
+                    <div class="links">
+                        <a href="https://github.com/alexrivera-dev/ecommerce-api-gateway" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Personal Finance Tracker (Web App)</h3>
+                    <p>
+                        A full-stack React.js single-page application (SPA) with a Node.js/Express backend and MongoDB database.
+                        Allows users to track income, expenses, categorize transactions, and visualize budget progress.
+                    </p>
+                    <div class="links">
+                        <a href="https://github.com/alexrivera-dev/finance-tracker-app" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">Live Demo (N/A)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Node.js</li>
+                <li>React.js</li>
+                <li>HTML5 & CSS3</li>
+                <li>SQL (PostgreSQL, MySQL)</li>
+                <li>NoSQL (MongoDB)</li>
+                <li>AWS (EC2, S3, Lambda)</li>
+                <li>Docker</li>
+                <li>Git</li>
+                <li>RESTful APIs</li>
+                <li>Microservices</li>
+                <li>Agile Methodologies</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="activities">
+        <div class="container">
+            <h2>Activities & Interests</h2>
+            <ul class="activities-list">
+                <li>Volunteering at Local Tech Meetups</li>
+                <li>Contributing to Open-Source Projects</li>
+                <li>Hiking & Outdoor Photography</li>
+                <li>Learning New Programming Paradigms (currently Rust & Go)</li>
+                <li>Attending Tech Conferences</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <p>Feel free to reach out for collaborations, job opportunities, or just to say hello!</p>
+                <p>Email: <a href="mailto:alex.rivera.dev@example.com">alex.rivera.dev@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/alexrivera-dev" target="_blank">linkedin.com/in/alexrivera-dev</a></p>
+                <p>GitHub: <a href="https://github.com/alexrivera-dev" target="_blank">github.com/alexrivera-dev</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Alex Rivera. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

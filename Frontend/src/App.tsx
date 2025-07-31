@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import PromptBar from './components/PromptBar';
 import axios from 'axios';
@@ -8,44 +7,53 @@ import Title from './components/Title';
 
 function App() {
   const [response, setResponse] = useState<string | null>(null);
+  const [generatedUrl, setGeneratedUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const token = useAuthStore((s) => s.token);
 
   const handlePrompt = async (prompt: string) => {
-  setLoading(true);
-  setResponse(null);
-  console.log('User entered:', prompt);
+    setLoading(true);
+    setResponse(null);
+    setGeneratedUrl(null); // clear previous URL
 
-  try {
-    if (!token) {
-      setResponse('You must be logged in.');
-      return;
-    }
-
-    const result = await axios.post(
-      'http://localhost:3000/projects/upload-prompt',
-      { prompt },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
+    try {
+      if (!token) {
+        setResponse('You must be logged in.');
+        return;
       }
-    );
 
-    setResponse(result.data.message || 'Upload successful!');
-  } catch (err: any) {
-    console.error('S3 upload failed:', err);
-    setResponse('Upload failed. Check console for details.');
-  } finally {
-    setLoading(false);
-  }
-};
+      // Step 1: Upload prompt to S3
+      const uploadRes = await axios.post(
+        'http://localhost:3000/projects/upload-prompt',
+        { prompt },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setResponse(uploadRes.data.message || 'Upload successful!');
 
-  if(!token){
-    return <Login />
+      // Step 2: Call /generate to run Python + upload HTML
+      const generateRes = await axios.post('http://localhost:3000/generate', {
+        key: 'prompts/first.txt', // Customize per user if needed
+      });
+
+      setGeneratedUrl(generateRes.data.url);
+    } catch (err: any) {
+      console.error('❌ Error:', err);
+      setResponse('Something went wrong. Check the console for details.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!token) {
+    return <Login />;
   }
-    return (
+
+  return (
     <div className="min-h-screen pb-20 px-6 pt-6 bg-gray-100 text-gray-90">
       <Title />
 
@@ -54,9 +62,25 @@ function App() {
           <p>{response}</p>
         </div>
       )}
+
       <PromptBar onSubmit={handlePrompt} loading={loading} />
 
+      {loading && <p className="mt-4 text-gray-500">⏳ Generating your website...</p>}
+
+      {generatedUrl && (
+        <div className="mt-6">
+          <a
+            href={generatedUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline hover:text-blue-800"
+          >
+            🌐 View Your Generated Website
+          </a>
+        </div>
+      )}
     </div>
   );
 }
+
 export default App;

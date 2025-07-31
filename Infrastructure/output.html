@@ -3,67 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Chen - Software Engineer Portfolio</title>
+    <title>Akhil Morisetty - Software Engineer</title>
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --bg-color: #ecf0f1;
-            --text-color: #34495e;
-            --card-bg: #ffffff;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
             line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
         }
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         header {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 1rem 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0;
             text-align: center;
-            box-shadow: var(--box-shadow);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            flex-wrap: wrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 3em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         nav ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
         }
 
@@ -72,576 +57,391 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #ecf0f1;
+            text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
-            padding: 5px 0;
-            border-bottom: 2px solid transparent;
-            transition: border-bottom 0.3s ease;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            border-bottom: 2px solid var(--primary-color);
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #1abc9c;
+            color: #fff;
         }
 
         section {
-            padding: 60px 20px;
-            margin: 0 auto;
-            max-width: 1200px;
+            background-color: #fff;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        section:nth-of-type(even) {
-            background-color: #f8f8f8;
-        }
-
-        h2 {
-            text-align: center;
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Hero Section */
-        #about {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            text-align: center;
-            min-height: calc(100vh - 120px); /* Adjust for header/footer */
-        }
-
-        #about .profile-photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary-color);
-            box-shadow: var(--box-shadow);
-        }
-
-        #about .about-content {
-            flex: 2;
-            min-width: 300px;
-            max-width: 800px;
-        }
-
-        #about h2 {
-            font-size: 3.5rem;
+        section h2 {
+            color: #2c3e50;
+            font-size: 2em;
             margin-bottom: 20px;
-            color: var(--secondary-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        #about h2::after {
-            display: none;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
         }
 
         #about p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--text-color);
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            border-radius: var(--border-radius);
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        /* Projects Section */
-        #projects .project-grid {
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
+            margin-top: 20px;
         }
 
         .project-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 25px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .project-card h3 {
-            color: var(--secondary-color);
-            font-size: 1.8rem;
+            color: #1abc9c;
             margin-top: 0;
-            margin-bottom: 15px;
+            font-size: 1.5em;
         }
 
         .project-card p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.95em;
         }
 
-        .project-card .technologies {
-            font-style: italic;
-            color: #777;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+        .project-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
         }
 
-        .project-card .project-links a {
-            margin: 0 10px;
+        .project-card ul li {
+            background-color: #e0f2f1;
+            color: #2c3e50;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px 5px 5px 0;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2980b9;
+            text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
         }
 
-        /* Skills Section */
-        #skills .skills-grid {
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-item h3 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .experience-item p.role-date {
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
 
-        .skill-category {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 25px;
-        }
-
         .skill-category h3 {
-            color: var(--secondary-color);
+            color: #1abc9c;
             margin-top: 0;
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 1.6rem;
+            margin-bottom: 10px;
         }
 
         .skill-category ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
         }
 
         .skill-category ul li {
-            background-color: var(--bg-color);
-            padding: 8px 15px;
+            background-color: #e8f5e9;
+            color: #388e3c;
+            padding: 8px 12px;
             margin-bottom: 8px;
             border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 1rem;
-            border-left: 4px solid var(--primary-color);
-            transition: background-color 0.3s ease;
-        }
-
-        .skill-category ul li:hover {
-            background-color: #e0e0e0;
-        }
-
-        /* Activities Section */
-        #activities .activity-item {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 25px;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .activity-item h3 {
-            color: var(--secondary-color);
-            margin-top: 0;
-            font-size: 1.8rem;
-        }
-
-        .activity-item .date {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-            font-size: 0.95rem;
-        }
-
-        .activity-item p {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .activity-item ul {
-            list-style: disc;
-            margin-left: 20px;
-            color: #555;
-        }
-
-        /* Contact Section */
-        #contact .contact-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-        }
-
-        #contact .contact-form {
-            flex: 2;
-            min-width: 300px;
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        #contact .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        #contact .contact-form input[type="text"],
-        #contact .contact-form input[type="email"],
-        #contact .contact-form textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        #contact .contact-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        #contact .contact-form button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: var(--border-radius);
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #contact .contact-form button:hover {
-            background-color: var(--accent-color);
-        }
-
-        #contact .contact-info {
-            flex: 1;
-            min-width: 250px;
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        #contact .contact-info p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        #contact .contact-info p strong {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-
-        #contact .social-links {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        #contact .social-links a {
+            font-size: 0.9em;
             display: inline-block;
-            margin: 0 10px;
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
+            margin-right: 8px;
+            border: 1px solid #c8e6c9;
         }
 
-        #contact .social-links a:hover {
-            color: var(--primary-color);
+        .activities-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .activities-list ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fcfcfc;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            color: #444;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
         footer {
-            background-color: var(--secondary-color);
-            color: white;
             text-align: center;
-            padding: 25px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-            }
-            nav ul {
-                margin-top: 15px;
-            }
-            nav ul li {
-                margin: 5px 10px;
-            }
-            #about {
-                flex-direction: column;
-                padding-top: 30px;
-                padding-bottom: 30px;
-                min-height: auto;
-            }
-            #about .profile-photo {
-                width: 200px;
-                height: 200px;
-            }
-            #about h2 {
-                font-size: 2.8rem;
-            }
-            section {
-                padding: 40px 15px;
-            }
-            .project-card, .skill-category, .activity-item, .contact-form, .contact-info {
-                padding: 20px;
-            }
-            #contact .contact-content {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            nav ul li a {
-                font-size: 1rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            #about h2 {
-                font-size: 2.2rem;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
+            padding: 25px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 0.9em;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Alex Chen</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#activities">Activities</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <h1>Akhil Morisetty</h1>
+            <p>Software Engineer | Building Scalable Solutions with Code</p>
         </div>
     </header>
 
-    <main>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
         <section id="about">
-            <img src="https://via.placeholder.com/250/3498db/ffffff?text=Alex+Chen" alt="Alex Chen Profile Photo" class="profile-photo">
-            <div class="about-content">
-                <h2>Hello, I'm Alex Chen</h2>
-                <p>A passionate Software Engineer with a strong foundation in full-stack development and a keen interest in building scalable, high-performance applications. I thrive on solving complex problems and constantly learning new technologies to deliver innovative solutions.</p>
-                <p>My expertise lies in crafting robust back-end systems, intuitive front-end interfaces, and automating development workflows. I'm always looking for opportunities to contribute to impactful projects and collaborate with dynamic teams.</p>
-                <a href="#contact" class="btn">Get in Touch</a>
-            </div>
+            <h2>About Me</h2>
+            <p>Hello! I'm Akhil Morisetty, a passionate Software Engineer with a strong foundation in developing robust and scalable applications. My journey in software engineering began with a fascination for how technology solves real-world problems, and it has led me to explore various aspects of full-stack development, cloud infrastructure, and data-driven solutions.</p>
+            <p>I thrive on learning new technologies and am always eager to take on challenging projects that push the boundaries of my skills. Whether it's crafting elegant backend APIs, optimizing database performance, or building intuitive user interfaces, I am committed to delivering high-quality code and innovative solutions. Outside of coding, I enjoy exploring new hiking trails, dabbling in photography, and contributing to open-source communities.</p>
         </section>
 
         <section id="projects">
-            <h2>My Projects</h2>
+            <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>E-commerce Microservices Platform</h3>
-                    <p>Designed and implemented a scalable e-commerce platform using a microservices architecture, featuring product catalog, order management, and user authentication services.</p>
-                    <p class="technologies">Technologies: React, Node.js (Express), Kafka, PostgreSQL, Docker, AWS EC2</p>
-                    <div class="project-links">
-                        <a href="https://github.com/alexchen/ecommerce-platform" target="_blank">GitHub</a>
-                        <a href="https://demo.alexchen.dev/ecommerce" target="_blank">Live Demo</a>
-                    </div>
+                    <h3>DevConnect Social Platform</h3>
+                    <p>A full-stack social networking platform designed for developers to connect, share knowledge, and collaborate on projects.</p>
+                    <ul>
+                        <li>React</li>
+                        <li>Node.js (Express)</li>
+                        <li>MongoDB</li>
+                        <li>Socket.io</li>
+                    </ul>
+                    <a href="#">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>AI-Powered Customer Support Chatbot</h3>
-                    <h3>AI-Powered Customer Support Chatbot</h3>
-                    <p>Developed an intelligent chatbot capable of understanding natural language queries and providing automated support, integrated with a CRM system.</p>
-                    <p class="technologies">Technologies: Python (TensorFlow, Keras), Flask, NLP, MongoDB, AWS Lambda</p>
-                    <div class="project-links">
-                        <a href="https://github.com/alexchen/ai-chatbot" target="_blank">GitHub</a>
-                        <a href="https://demo.alexchen.dev/chatbot" target="_blank">Live Demo</a>
-                    </div>
+                    <h3>SmartFarm Crop Yield Predictor</h3>
+                    <p>An AI-powered web application that helps farmers predict crop yields based on environmental data, historical trends, and satellite imagery.</p>
+                    <ul>
+                        <li>Python (TensorFlow)</li>
+                        <li>Django</li>
+                        <li>PostgreSQL</li>
+                        <li>AWS S3</li>
+                    </ul>
+                    <a href="#">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>DevOps Automation Dashboard</h3>
-                    <p>Created a centralized dashboard for monitoring CI/CD pipelines, managing infrastructure, and visualizing deployment metrics to streamline DevOps operations.</p>
-                    <p class="technologies">Technologies: Go, Kubernetes, Prometheus, Grafana, GitLab CI/CD, React</p>
-                    <div class="project-links">
-                        <a href="https://github.com/alexchen/devops-dashboard" target="_blank">GitHub</a>
-                        <a href="https://demo.alexchen.dev/devops" target="_blank">Live Demo</a>
-                    </div>
+                    <h3>Zenith Fitness Tracker (Mobile App)</h3>
+                    <p>A cross-platform mobile application for tracking workouts, monitoring fitness progress, and setting personal health goals.</p>
+                    <ul>
+                        <li>React Native</li>
+                        <li>Firebase (Auth, Firestore)</li>
+                        <li>Google Fit API</li>
+                        <li>Expo</li>
+                    </ul>
+                    <a href="#">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>Personal Finance Tracker (Mobile-first)</h3>
-                    <p>A cross-platform mobile application to help users track expenses, manage budgets, and visualize financial trends with intuitive charts.</p>
-                    <p class="technologies">Technologies: React Native, Django REST Framework, PostgreSQL, Redux</p>
-                    <div class="project-links">
-                        <a href="https://github.com/alexchen/finance-tracker" target="_blank">GitHub</a>
-                        <a href="https://demo.alexchen.dev/finance" target="_blank">Live Demo</a>
-                    </div>
+                    <h3>Microservice Orchestration Engine</h3>
+                    <p>Developed a lightweight orchestration engine for managing and scaling Dockerized microservices across a distributed cluster.</p>
+                    <ul>
+                        <li>Go</li>
+                        <li>Kubernetes</li>
+                        <li>Docker</li>
+                        <li>Prometheus</li>
+                    </ul>
+                    <a href="#">View Project</a>
                 </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Software Engineer | TechSolutions Inc.</h3>
+                <p class="role-date">June 2022 - Present</p>
+                <ul>
+                    <li>Designed and implemented scalable backend services using Python and Go, improving data processing efficiency by 30%.</li>
+                    <li>Developed and maintained RESTful APIs for critical business applications, handling over 1 million requests daily.</li>
+                    <li>Collaborated with cross-functional teams to define requirements, design solutions, and deliver features in Agile sprints.</li>
+                    <li>Contributed to CI/CD pipeline automation, reducing deployment time by 25% using Jenkins and Docker.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Junior Developer | InnovateX Corp.</h3>
+                <p class="role-date">May 2021 - May 2022</p>
+                <ul>
+                    <li>Assisted in the development of a customer-facing web application using React.js and Node.js.</li>
+                    <li>Wrote comprehensive unit and integration tests, increasing code coverage by 20%.</li>
+                    <li>Participated in daily stand-ups and sprint planning sessions, contributing to architectural discussions.</li>
+                    <li>Debugged and resolved issues in existing codebase, enhancing application stability.</li>
+                </ul>
             </div>
         </section>
 
         <section id="skills">
-            <h2>My Skills</h2>
+            <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Programming Languages</h3>
                     <ul>
                         <li>Python</li>
-                        <li>JavaScript (ES6+)</li>
                         <li>Go</li>
-                        <li>Java</li>
+                        <li>JavaScript</li>
                         <li>TypeScript</li>
+                        <li>Java</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Frontend Development</h3>
+                    <h3>Frameworks & Libraries</h3>
                     <ul>
                         <li>React</li>
-                        <li>Vue.js</li>
-                        <li>HTML5/CSS3</li>
-                        <li>SASS/LESS</li>
-                        <li>Responsive Design</li>
+                        <li>Node.js (Express)</li>
+                        <li>Django</li>
+                        <li>Spring Boot</li>
+                        <li>TensorFlow</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Backend Development</h3>
+                    <h3>Databases</h3>
                     <ul>
-                        <li>Node.js (Express)</li>
-                        <li>Django / Flask</li>
-                        <li>Spring Boot</li>
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>Redis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Git</li>
+                        <li>Jenkins</li>
+                        <li>Jira</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <ul>
+                        <li>AWS (EC2, S3, RDS)</li>
+                        <li>Google Cloud Platform</li>
+                        <li>CI/CD</li>
                         <li>RESTful APIs</li>
                         <li>Microservices</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases & DevOps</h3>
-                    <ul>
-                        <li>PostgreSQL, MongoDB</li>
-                        <li>MySQL, Redis</li>
-                        <li>Docker, Kubernetes</li>
-                        <li>AWS (EC2, S3, Lambda)</li>
-                        <li>Git, CI/CD (GitHub Actions)</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="activities">
-            <h2>Experience & Activities</h2>
-            <div class="activity-item">
-                <h3>Lead Software Engineer - Tech Solutions Inc.</h3>
-                <span class="date">Jan 2022 - Present</span>
+            <h2>Activities & Interests</h2>
+            <div class="activities-list">
                 <ul>
-                    <li>Led a team of 5 engineers in developing a new cloud-native analytics platform, improving data processing speed by 30%.</li>
-                    <li>Designed and implemented scalable API gateways using Go, handling over 1 million requests per day.</li>
-                    <li>Mentored junior developers, fostering a collaborative and growth-oriented team environment.</li>
-                </ul>
-            </div>
-            <div class="activity-item">
-                <h3>Software Engineering Intern - Innovate Corp.</h3>
-                <span class="date">May 2021 - Aug 2021</span>
-                <ul>
-                    <li>Developed internal tools to automate testing workflows using Python, reducing manual testing time by 20%.</li>
-                    <li>Contributed to the development of a new feature for the flagship product's frontend using React.</li>
-                </ul>
-            </div>
-            <div class="activity-item">
-                <h3>Open Source Contributor - Community Data Analytics</h3>
-                <span class="date">2020 - Present</span>
-                <ul>
-                    <li>Regularly contribute to the `DataVizLib` project, focusing on performance optimizations and new chart types.</li>
-                    <li>Participated in code reviews and community discussions, enhancing project quality and collaboration.</li>
-                </ul>
-            </div>
-            <div class="activity-item">
-                <h3>Hackathon Winner - FutureTech Hackathon 2023</h3>
-                <span class="date">Oct 2023</span>
-                <ul>
-                    <li>Won 1st place for "Smart Home Energy Optimizer," a prototype leveraging IoT data and machine learning.</li>
-                    <li>Collaborated with a cross-functional team under tight deadlines to deliver a functional demo.</li>
+                    <li><strong>Open Source Contributions:</strong> Actively contribute to various open-source projects on GitHub, focusing on backend tools and utility libraries.</li>
+                    <li><strong>Tech Blog Writing:</strong> Maintain a personal blog where I share insights on new programming paradigms, software architecture, and practical coding tips.</li>
+                    <li><strong>Competitive Programming:</strong> Regularly participate in online coding contests to sharpen my algorithm and data structure skills.</li>
+                    <li><strong>Hiking & Photography:</strong> Passionate about exploring national parks and capturing landscapes through my camera lens.</li>
+                    <li><strong>Volunteer Coding:</strong> Provide pro-bono development services for local non-profit organizations, helping them establish a stronger online presence.</li>
                 </ul>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <h3>Send a Message</h3>
-                    <form action="#" method="POST">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject">
-
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
-
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Reach Out</h3>
-                    <p><strong>Email:</strong> <a href="mailto:alex.chen.dev@example.com">alex.chen.dev@example.com</a></p>
-                    <p><strong>Phone:</strong> <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
-                    <p><strong>Location:</strong> San Francisco, CA</p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/alexchen" target="_blank" title="LinkedIn">🌐</a>
-                        <a href="https://github.com/alexchen" target="_blank" title="GitHub">🐙</a>
-                        <a href="https://twitter.com/alexchendev" target="_blank" title="Twitter">🐦</a>
-                    </div>
-                </div>
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Feel free to reach out to me for collaborations, job opportunities, or just a chat about technology!</p>
+                <p>Email: <a href="mailto:akhil.morisetty@example.com">akhil.morisetty@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/akhil-morisetty" target="_blank" rel="noopener noreferrer">linkedin.com/in/akhil-morisetty</a></p>
+                <p>GitHub: <a href="https://github.com/akhil-morisetty" target="_blank" rel="noopener noreferrer">github.com/akhil-morisetty</a></p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Alex Chen. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Akhil Morisetty. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>

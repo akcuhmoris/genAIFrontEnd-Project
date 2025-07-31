@@ -4,6 +4,9 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { ProjectModule } from './project/project.module';
 import { S3Module } from './cloud/s3.module';
+import { WebsiteController } from './website/website.controller';
+import { GenerateModule } from './generate/generate.module';
+
 
 @Module({
   imports: [
@@ -12,6 +15,8 @@ import { S3Module } from './cloud/s3.module';
     AuthModule,
     ProjectModule,
     S3Module,
+    GenerateModule, // Import the GenerateModule here
   ],
+  controllers: [WebsiteController],
 })
 export class AppModule {}
