@@ -18,7 +18,7 @@ const PromptBar: React.FC<PromptBarProps> = ({ onSubmit, loading = false }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="fixed bottom-0 left-0 right-0 bg-white px-4 py-3 border-t border-gray-200 flex items-center gap-2 z-50"
+      className="fixed bottom-0 left-0 right-0 bg-white px-4 py-3 border-t border-gray-200 flex items-center gap-3 z-50"
     >
       <textarea
         rows={1}
