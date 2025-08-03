@@ -20,7 +20,7 @@ export class S3Service {
   }
 
   async uploadPrompt(prompt: string): Promise<void> {
-    const key = `prompts/${Date.now()}.txt`;
+    const key = `prompts/first.txt`;
 
     const command = new PutObjectCommand({
       Bucket: process.env.BUCKET_NAME!,

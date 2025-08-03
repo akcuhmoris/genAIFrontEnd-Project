@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhil Morisetty - Software Engineer Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: #4CAF50; /* Accent color for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #6dcf71;
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: #0f0f1a;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* For smaller screens */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease, border-radius 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 40px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2, h3 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #fff; /* White for main name */
+        }
+
+        #hero {
+            text-align: center;
+            padding: 60px 0;
+            background-color: #0f0f1a;
+            color: #fff;
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .skills-grid li {
+            background-color: #2a2a4a;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .skills-grid li:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-card {
+            background-color: #2a2a4a;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #4CAF50;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .project-card p {
+            margin-bottom: 10px;
+        }
+
+        .project-card .tech-stack {
+            font-size: 0.9em;
+            color: #bbb;
+        }
+
+        .activity-item {
+            background-color: #2a2a4a;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateX(5px);
+        }
+
+        .activity-item h3 {
+            color: #4CAF50;
+            margin-top: 0;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #0f0f1a;
+            color: #bbb;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            section {
+                padding: 20px 0;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Akhil Morisetty</h1>
+                <p>Software Engineer | Full Stack Developer | AI Enthusiast</p>
+                <p>Crafting innovative solutions at the intersection of robust code and intelligent systems.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Hello! I'm Akhil Morisetty, a passionate Software Engineer with a strong foundation in developing scalable and efficient applications. My expertise spans across full-stack development, with a particular interest in leveraging artificial intelligence and machine learning to create intelligent systems. I thrive in challenging environments and am always eager to learn new technologies and contribute to impactful projects. I believe in writing clean, maintainable code and building user-centric products.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <ul class="skills-grid">
+                    <li><strong>Languages:</strong> Python, JavaScript (ES6+), Java, Go, C++</li>
+                    <li><strong>Frontend:</strong> React, Angular, Vue.js, HTML5, CSS3, SASS</li>
+                    <li><strong>Backend:</strong> Node.js (Express), Django, Flask, Spring Boot, RESTful APIs, GraphQL</li>
+                    <li><strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch</li>
+                    <li><strong>Cloud & DevOps:</strong> AWS (EC2, S3, Lambda, RDS), Docker, Kubernetes, Git, CI/CD</li>
+                    <li><strong>AI/ML:</strong> TensorFlow, PyTorch, Scikit-learn, NLP, Computer Vision</li>
+                    <li><strong>Tools & Methodologies:</strong> Agile, Scrum, TDD, Jira, Postman</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+
+                <div class="project-card">
+                    <h3>AI-Powered Code Reviewer</h3>
+                    <p>Developed an intelligent tool that automates code review processes, identifying potential bugs, style violations, and suggesting optimizations. Utilizes NLP for comment analysis and machine learning models trained on millions of code snippets. Achieved 90% accuracy in defect detection in internal testing.</p>
+                    <p class="tech-stack"><strong>Technologies:</strong> Python, Flask, TensorFlow, NLP, Docker</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Decentralized Chat Application (D-Chat)</h3>
+                    <p>Built a secure, end-to-end encrypted chat application using blockchain principles for user identity and message integrity. Features real-time communication with WebSockets and a simplified decentralized architecture to enhance privacy and censorship resistance.</p>
+                    <p class="tech-stack"><strong>Technologies:</strong> React, Node.js, WebSockets, Solidity (conceptual), IPFS</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Smart Home Automation System</h3>
+                    <p>Designed and implemented a comprehensive IoT solution for smart home control. Integrates various smart devices (lights, thermostats, security cameras) and provides a centralized dashboard for monitoring and automation schedules. Includes energy consumption analytics and remote access.</p>
+                    <p class="tech-stack"><strong>Technologies:</strong> Python, Raspberry Pi, MQTT, Flask, PostgreSQL, IoT</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <div class="container">
+                <h2>Activities & Experience</h2>
+
+                <div class="activity-item">
+                    <h3>Open Source Contributor</h3>
+                    <p>Active contributor to the "NeuralSynth" project, focusing on improving performance and adding new features to its data processing and model training modules. Regularly submit pull requests and participate in community code reviews.</p>
+                </div>
+
+                <div class="activity-item">
+                    <h3>Tech Blog Author</h3>
+                    <p>Maintain a personal tech blog where I publish articles on advanced web development techniques, AI concepts, and software architecture patterns. Recent topics include "Serverless Architectures with AWS Lambda" and "Understanding Transformer Models in NLP."</p>
+                </div>
+
+                <div class="activity-item">
+                    <h3>Hackathon Winner - CodeForge 2023</h3>
+                    <p>Led a team to win the 'Best Innovation' award at the 'CodeForge 2023' hackathon for developing a real-time sign language translator using computer vision and TensorFlow. The prototype achieved high accuracy in translating common signs.</p>
+                </div>
+
+                <div class="activity-item">
+                    <h3>Mentorship Program - University CodeConnect</h3>
+                    <p>Participated as a mentor in the university's 'CodeConnect' program, guiding junior developers in mastering React and Node.js for their capstone projects, focusing on best practices and scalable application design.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:akhil.morisetty@email.com">akhil.morisetty@email.com</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/akhilmorisetty" target="_blank" rel="noopener noreferrer">linkedin.com/in/akhilmorisetty</a></p>
+                    <p>GitHub: <a href="https://github.com/akhilmorisetty" target="_blank" rel="noopener noreferrer">github.com/akhilmorisetty</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Akhil Morisetty. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

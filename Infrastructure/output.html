@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhil Morisetty - Software Engineer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #1abc9c;
+            color: #fff;
+        }
+
+        section {
+            background-color: #fff;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #1abc9c;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .project-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .project-card ul li {
+            background-color: #e0f2f1;
+            color: #2c3e50;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px 5px 5px 0;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-item h3 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .experience-item p.role-date {
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            color: #1abc9c;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-category ul li {
+            background-color: #e8f5e9;
+            color: #388e3c;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-right: 8px;
+            border: 1px solid #c8e6c9;
+        }
+
+        .activities-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .activities-list ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fcfcfc;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            color: #444;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Akhil Morisetty</h1>
+            <p>Software Engineer | Building Scalable Solutions with Code</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Akhil Morisetty, a passionate Software Engineer with a strong foundation in developing robust and scalable applications. My journey in software engineering began with a fascination for how technology solves real-world problems, and it has led me to explore various aspects of full-stack development, cloud infrastructure, and data-driven solutions.</p>
+            <p>I thrive on learning new technologies and am always eager to take on challenging projects that push the boundaries of my skills. Whether it's crafting elegant backend APIs, optimizing database performance, or building intuitive user interfaces, I am committed to delivering high-quality code and innovative solutions. Outside of coding, I enjoy exploring new hiking trails, dabbling in photography, and contributing to open-source communities.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>DevConnect Social Platform</h3>
+                    <p>A full-stack social networking platform designed for developers to connect, share knowledge, and collaborate on projects.</p>
+                    <ul>
+                        <li>React</li>
+                        <li>Node.js (Express)</li>
+                        <li>MongoDB</li>
+                        <li>Socket.io</li>
+                    </ul>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>SmartFarm Crop Yield Predictor</h3>
+                    <p>An AI-powered web application that helps farmers predict crop yields based on environmental data, historical trends, and satellite imagery.</p>
+                    <ul>
+                        <li>Python (TensorFlow)</li>
+                        <li>Django</li>
+                        <li>PostgreSQL</li>
+                        <li>AWS S3</li>
+                    </ul>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Zenith Fitness Tracker (Mobile App)</h3>
+                    <p>A cross-platform mobile application for tracking workouts, monitoring fitness progress, and setting personal health goals.</p>
+                    <ul>
+                        <li>React Native</li>
+                        <li>Firebase (Auth, Firestore)</li>
+                        <li>Google Fit API</li>
+                        <li>Expo</li>
+                    </ul>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Microservice Orchestration Engine</h3>
+                    <p>Developed a lightweight orchestration engine for managing and scaling Dockerized microservices across a distributed cluster.</p>
+                    <ul>
+                        <li>Go</li>
+                        <li>Kubernetes</li>
+                        <li>Docker</li>
+                        <li>Prometheus</li>
+                    </ul>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Software Engineer | TechSolutions Inc.</h3>
+                <p class="role-date">June 2022 - Present</p>
+                <ul>
+                    <li>Designed and implemented scalable backend services using Python and Go, improving data processing efficiency by 30%.</li>
+                    <li>Developed and maintained RESTful APIs for critical business applications, handling over 1 million requests daily.</li>
+                    <li>Collaborated with cross-functional teams to define requirements, design solutions, and deliver features in Agile sprints.</li>
+                    <li>Contributed to CI/CD pipeline automation, reducing deployment time by 25% using Jenkins and Docker.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Junior Developer | InnovateX Corp.</h3>
+                <p class="role-date">May 2021 - May 2022</p>
+                <ul>
+                    <li>Assisted in the development of a customer-facing web application using React.js and Node.js.</li>
+                    <li>Wrote comprehensive unit and integration tests, increasing code coverage by 20%.</li>
+                    <li>Participated in daily stand-ups and sprint planning sessions, contributing to architectural discussions.</li>
+                    <li>Debugged and resolved issues in existing codebase, enhancing application stability.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Go</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>Node.js (Express)</li>
+                        <li>Django</li>
+                        <li>Spring Boot</li>
+                        <li>TensorFlow</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul>
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>Redis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Git</li>
+                        <li>Jenkins</li>
+                        <li>Jira</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <ul>
+                        <li>AWS (EC2, S3, RDS)</li>
+                        <li>Google Cloud Platform</li>
+                        <li>CI/CD</li>
+                        <li>RESTful APIs</li>
+                        <li>Microservices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <h2>Activities & Interests</h2>
+            <div class="activities-list">
+                <ul>
+                    <li><strong>Open Source Contributions:</strong> Actively contribute to various open-source projects on GitHub, focusing on backend tools and utility libraries.</li>
+                    <li><strong>Tech Blog Writing:</strong> Maintain a personal blog where I share insights on new programming paradigms, software architecture, and practical coding tips.</li>
+                    <li><strong>Competitive Programming:</strong> Regularly participate in online coding contests to sharpen my algorithm and data structure skills.</li>
+                    <li><strong>Hiking & Photography:</strong> Passionate about exploring national parks and capturing landscapes through my camera lens.</li>
+                    <li><strong>Volunteer Coding:</strong> Provide pro-bono development services for local non-profit organizations, helping them establish a stronger online presence.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Feel free to reach out to me for collaborations, job opportunities, or just a chat about technology!</p>
+                <p>Email: <a href="mailto:akhil.morisetty@example.com">akhil.morisetty@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/akhil-morisetty" target="_blank" rel="noopener noreferrer">linkedin.com/in/akhil-morisetty</a></p>
+                <p>GitHub: <a href="https://github.com/akhil-morisetty" target="_blank" rel="noopener noreferrer">github.com/akhil-morisetty</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Akhil Morisetty. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
